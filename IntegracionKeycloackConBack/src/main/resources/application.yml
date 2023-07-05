@@ -1,0 +1,18 @@
+server:
+  port: 8080
+
+spring:
+  aplication:
+    name: dh-fintech-gateway-oauth-client
+  security:
+    oauth:
+      client:
+        provider:
+          keycloack:
+            issuer-uri: http://localhost:9091/realms/fintech-external-realm
+        registration:
+          keycloack:
+            client-id: spring-microservices
+            client-secret:
+            scope: openId
+            redirect-uri: http://localhost:8080

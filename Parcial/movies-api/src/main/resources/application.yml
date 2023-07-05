@@ -1,0 +1,45 @@
+spring:
+  security:
+    oauth2:
+      client:
+        provider:
+          keycloack:
+            issuer-uri: http://localhost:8082/realms/DigitalMedia
+        registration:
+          keycloack:
+            client-id: microservicios
+            client-secret: rt66ZSZDQB9nQ8WZVTNplASEW9rSarBq
+            scope: openid
+            redirect-uri: http://localhost:8080/login/oauth2/code/google
+  application:
+    name: movies-service
+  data:
+    mongodb:
+      uri: mongodb://localhost:27017/moviesdb
+  main:
+    allow-circular-references: true
+
+app:
+  cors:
+    allowed-origins: http://localhost:3000
+
+management:
+  endpoints:
+    web:
+      exposure.include: beans, env, health, info, metrics, mappings
+  endpoint:
+    health:
+      show-details: always
+
+springdoc:
+  show-actuator: true
+  swagger-ui:
+    groups-order: DESC
+    disable-swagger-default-url: true
+
+server:
+  port: 8090
+
+eureka:
+  client:
+    enabled: false
